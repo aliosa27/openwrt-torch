@@ -1,0 +1,45 @@
+--- a/arch/mips/ath79/Kconfig
++++ b/arch/mips/ath79/Kconfig
+***************
+*** 55,60 ****
+--- 55,70 ----
+  	  Say 'Y' here if you want your kernel to support the
+  	  Atheros DB120 reference board.
+  
++ config ATH79_MACH_TORCH
++         bool "Torch board support"
++         select SOC_QCA955X
++         select ATH79_DEV_ETH
++         select ATH79_DEV_GPIO_BUTTONS
++         select ATH79_DEV_LEDS_GPIO
++         select ATH79_DEV_M25P80
++         select ATH79_DEV_USB
++         select ATH79_DEV_WMAC
++
+  config ATH79_MACH_PB44
+  	bool "Atheros PB44 reference board"
+  	select SOC_AR71XX
+--- a/arch/mips/ath79/machtypes.h
++++ b/arch/mips/ath79/machtypes.h
+***************
+*** 105,110 ****
+--- 105,111 ----
+  	ATH79_MACH_ENS202EXT,			/* EnGenius ENS202EXT */
+  	ATH79_MACH_EPG5000,			/* EnGenius EPG5000 */
+  	ATH79_MACH_ESR1750,			/* EnGenius ESR1750 */
++ 	ATH79_MACH_TORCH,                       /* Torch */
+  	ATH79_MACH_ESR900,			/* EnGenius ESR900 */
+  	ATH79_MACH_EW_DORIN,			/* embedded wireless Dorin Platform */
+  	ATH79_MACH_EW_DORIN_ROUTER,		/* embedded wireless Dorin Router Platform */
+--- a/arch/mips/ath79/Makefile
++++ b/arch/mips/ath79/Makefile
+***************
+*** 114,119 ****
+--- 114,120 ----
+  obj-$(CONFIG_ATH79_MACH_ENS202EXT)		+= mach-ens202ext.o
+  obj-$(CONFIG_ATH79_MACH_EPG5000)		+= mach-epg5000.o
+  obj-$(CONFIG_ATH79_MACH_ESR1750)		+= mach-esr1750.o
++ obj-$(CONFIG_ATH79_MACH_TORCH)			+= mach-bellingham.o
+  obj-$(CONFIG_ATH79_MACH_ESR900)			+= mach-esr900.o
+  obj-$(CONFIG_ATH79_MACH_EW_DORIN)		+= mach-ew-dorin.o
+  obj-$(CONFIG_ATH79_MACH_F9K1115V2)		+= mach-f9k1115v2.o

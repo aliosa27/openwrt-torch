@@ -100,7 +100,7 @@ static struct ar8327_pad_cfg bellingham_ar8327_pad0_cfg = {
 	.rxclk_delay_en = true,
 	.txclk_delay_sel = AR8327_CLK_DELAY_SEL2,
 	.rxclk_delay_sel = AR8327_CLK_DELAY_SEL2,
-	.mac06_exchange_en = true,
+	//.mac06_exchange_en = true,
 };
 
 static struct ar8327_platform_data bellingham_ar8327_data = {
@@ -193,6 +193,4 @@ static void __init bellingham_setup(void)
 	ath79_register_pci();
 }
 
-MIPS_MACHINE(ATH79_MACH_BELLINGHAM, "TORCH",
-	     "torch",
-	     bellingham_setup);
+MIPS_MACHINE(ATH79_MACH_TORCH,"TORCH","Torch Router",bellingham_setup);
